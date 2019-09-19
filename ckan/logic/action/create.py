@@ -42,6 +42,20 @@ ValidationError = logic.ValidationError
 NotFound = logic.NotFound
 _get_or_bust = logic.get_or_bust
 
+# Outdated function
+'''
+## Modifications for rest api
+def package_create_rest(context, data_dict):
+    _check_access('package_create_rest', context, data_dict)
+    dictized_package = model_save.package_api_to_dict(data_dict, context)
+    dictized_after = _get_action('package_create')(context, dictized_package)
+    pkg = context['package']
+    package_dict = model_dictize.package_to_api(pkg, context)
+    data_dict['id'] = pkg.id
+    return package_dict
+'''
+
+
 
 def package_create(context, data_dict):
     '''Create a new dataset (package).
